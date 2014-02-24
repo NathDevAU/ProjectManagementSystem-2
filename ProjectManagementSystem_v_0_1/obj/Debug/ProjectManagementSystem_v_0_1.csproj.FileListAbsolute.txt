@@ -1,0 +1,24 @@
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\bin\Debug\ProjectManagementSystem_v_0_1.exe.config
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\bin\Debug\ProjectManagementSystem_v_0_1.exe
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\bin\Debug\ProjectManagementSystem_v_0_1.pdb
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\bin\Debug\nunit.framework.dll
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\bin\Debug\SimpleCrypto.dll
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.csprojResolveAssemblyReference.cache
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.Properties.Resources.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.CreateUserForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.LoginForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.csproj.GenerateResource.Cache
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.exe
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.pdb
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.ProjectView.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.TaskAddWindowsForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.ManagerView.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.TaskEditWindowsForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.EditWorksOnForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.AddWorksOnForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.AddNewProjectForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.EditProjectForm.resources
+C:\Users\Erik Bååth\Documents\Visual Studio 2012\Projects\ProjectManagementApp\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.View.EditProjectMemberForm.resources
+E:\ProjectManagementSystem\ProjectManagementSystem_v_0_1\bin\Debug\ProjectManagementSystem_v_0_1.exe.config
+E:\ProjectManagementSystem\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.exe
+E:\ProjectManagementSystem\ProjectManagementSystem_v_0_1\obj\Debug\ProjectManagementSystem_v_0_1.pdb

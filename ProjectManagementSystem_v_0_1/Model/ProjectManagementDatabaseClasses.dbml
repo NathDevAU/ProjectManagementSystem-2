@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PMS" Class="ProjectManagementDatabaseClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ErikBååth-PC;Initial Catalog=PMS;Integrated Security=True" SettingsObjectName="ProjectManagementSystem_v_0_1.Properties.Settings" SettingsPropertyName="PMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PMemEmailList" Member="PMemEmailLists">
+    <Type Name="PMemEmailList">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ProjectMember_PMemEmailList" Member="ProjectMember" ThisKey="PNR" OtherKey="PNR" Type="ProjectMember" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorksOn" Member="WorksOns">
+    <Type Name="WorksOn" Id="ID4">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Project_WorksOn" Member="Project" ThisKey="PNo" OtherKey="PNo" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectMember_WorksOn" Member="ProjectMember" ThisKey="PNR" OtherKey="PNR" Type="ProjectMember" IsForeignKey="true" />
+      <Association Name="Tasks_WorksOn" Member="Tasks" ThisKey="TNo" OtherKey="TNo" Type="Tasks" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PMemPhoneList" Member="PMemPhoneLists">
+    <Type Name="PMemPhoneList">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PhoneNr" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ProjectMember_PMemPhoneList" Member="ProjectMember" ThisKey="PNR" OtherKey="PNR" Type="ProjectMember" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project" Id="ID2">
+      <Column Name="PNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PBudget" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PDesc" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="PDeadline" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectLeaderPNR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Project_WorksOn" Member="WorksOns" ThisKey="PNo" OtherKey="PNo" Type="WorksOn" />
+      <Association Name="Project_Tasks" Member="Tasks" ThisKey="PNo" OtherKey="PNo" Type="Tasks" />
+      <Association Name="ProjectMember_Project" Member="ProjectMember" ThisKey="ProjectLeaderPNR" OtherKey="PNR" Type="ProjectMember" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectMember" Member="ProjectMembers">
+    <Type Name="ProjectMember" Id="ID1">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Forename" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MUsername" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MPassword" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MRole" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ProjectMember_PMemEmailList" Member="PMemEmailLists" ThisKey="PNR" OtherKey="PNR" Type="PMemEmailList" />
+      <Association Name="ProjectMember_WorksOn" Member="WorksOns" ThisKey="PNR" OtherKey="PNR" Type="WorksOn" />
+      <Association Name="ProjectMember_PMemPhoneList" Member="PMemPhoneLists" ThisKey="PNR" OtherKey="PNR" Type="PMemPhoneList" />
+      <Association Name="ProjectMember_Project" Member="Projects" ThisKey="PNR" OtherKey="ProjectLeaderPNR" Type="Project" />
+      <Association Name="ProjectMember_FinishedProject" Member="FinishedProjects" ThisKey="PNR" OtherKey="ProjectLeaderPNR" Type="FinishedProject" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tasks" Member="Tasks">
+    <Type Name="Tasks" Id="ID3">
+      <Column Name="TNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TDesc" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TDeadline" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Tasks_WorksOn" Member="WorksOns" ThisKey="TNo" OtherKey="TNo" Type="WorksOn" />
+      <Association Name="Project_Tasks" Member="Project" ThisKey="PNo" OtherKey="PNo" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinishedProject" Member="FinishedProjects">
+    <Type Name="FinishedProject" Id="ID5">
+      <Column Name="PNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PBudget" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PDesc" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="PDeadline" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectLeaderPNR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ProjectMember_FinishedProject" Member="ProjectMember" ThisKey="ProjectLeaderPNR" OtherKey="PNR" Type="ProjectMember" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinishedTasks" Member="FinishedTasks">
+    <Type Name="FinishedTasks">
+      <Column Name="TNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TDesc" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TDeadline" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.checkUserPassword" Method="checkUserPassword">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_GetErrorMessage" Method="usp_GetErrorMessage">
+    <ElementType Name="usp_GetErrorMessageResult">
+      <Column Name="ErrorNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorSeverity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorProcedure" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="ErrorLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.deletePMemEmailList" Method="deletePMemEmailList">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePMemPhoneList" Method="deletePMemPhoneList">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PhoneNr" Parameter="phoneNr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteProject" Method="deleteProject">
+    <Parameter Name="PNo" Parameter="pNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteProjectMember" Method="deleteProjectMember">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteTask" Method="deleteTask">
+    <Parameter Name="TNo" Parameter="tNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteWorksOn" Method="deleteWorksOn">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TNo" Parameter="tNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PNo" Parameter="pNo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getAllPmem" Method="getAllPmem">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.getAllPNoFromProject" Method="getAllPNoFromProject">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.getAllProject" Method="getAllProject">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.getAllTask" Method="getAllTask">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.getCurrentUser" Method="getCurrentUser">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="getCurrentUserResult">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Forename" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MUsername" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MPassword" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MRole" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getPMemPhoneList" Method="getPMemPhoneList">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PhoneNr" Parameter="phoneNr" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getPMemPhoneListResult">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getProjectMember" Method="getProjectMember">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getProjectMemberResult">
+      <Column Name="PNR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Forename" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MUsername" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MPassword" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MRole" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UserType" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getProjectMemebersForCurrentProject" Method="getProjectMemebersForCurrentProject">
+    <Parameter Name="Pno" Parameter="pno" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.getProjectsForCurrentUser" Method="getProjectsForCurrentUser">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(100)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.getTaskByProjectUser" Method="getTaskByProjectUser">
+    <Parameter Name="usn" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="pno" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.getWorksOn" Method="getWorksOn">
+    <Parameter Name="PNR" Parameter="pNR" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.setPMemEmailList" Method="setPMemEmailList">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.setPMemPhoneList" Method="setPMemPhoneList">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PhoneNr" Parameter="phoneNr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.setProject" Method="setProject">
+    <Parameter Name="Pno" Parameter="pno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PName" Parameter="pName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PBudget" Parameter="pBudget" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PDesc" Parameter="pDesc" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PDeadline" Parameter="pDeadline" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ProjectLeader" Parameter="projectLeader" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.setProjectMember" Method="setProjectMember">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Forename" Parameter="forename" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Surname" Parameter="surname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MUsername" Parameter="mUsername" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MPassword" Parameter="mPassword" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MRole" Parameter="mRole" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MPasswordSalt" Parameter="mPasswordSalt" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.setTask" Method="setTask">
+    <Parameter Name="TNo" Parameter="tNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PNo" Parameter="pNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TName" Parameter="tName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TDesc" Parameter="tDesc" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TDeadline" Parameter="tDeadline" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.setWorksOn" Method="setWorksOn">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TNo" Parameter="tNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PNo" Parameter="pNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updatePMemEmailList" Method="updatePMemEmailList">
+    <Parameter Name="OldPnr" Parameter="oldPnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OldEmail" Parameter="oldEmail" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updatePMemPhoneList" Method="updatePMemPhoneList">
+    <Parameter Name="OldPnr" Parameter="oldPnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OldPhoneNr" Parameter="oldPhoneNr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PhoneNr" Parameter="phoneNr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateProject" Method="updateProject">
+    <Parameter Name="Pno" Parameter="pno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PName" Parameter="pName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PBudget" Parameter="pBudget" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PDesc" Parameter="pDesc" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PDeadline" Parameter="pDeadline" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ProjectLeaderPnr" Parameter="projectLeaderPnr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateProjectMember" Method="updateProjectMember">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Forename" Parameter="forename" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Surname" Parameter="surname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MUsername" Parameter="mUsername" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MPassword" Parameter="mPassword" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MRole" Parameter="mRole" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateTask" Method="updateTask">
+    <Parameter Name="TNo" Parameter="tNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PNo" Parameter="pNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TName" Parameter="tName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TDesc" Parameter="tDesc" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TDeadline" Parameter="tDeadline" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getProject" Method="getProject">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.updateWorksOn" Method="updateWorksOn">
+    <Parameter Name="Pnr" Parameter="pnr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tno" Parameter="tno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pno" Parameter="pno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tnoIn" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pnoIn" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="updateWorksOnResult">
+      <Column Name="ErrorNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorSeverity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorProcedure" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="ErrorLine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getTask" Method="getTask">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.getHighestTno" Method="getHighestTno">
+    <ElementType Name="getHighestTnoResult1">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getHighestPno" Method="getHighestPno">
+    <ElementType Name="getHighestPnoResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.finishedProjectsForCurrentUser" Method="finishedProjectsForCurrentUser">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(100)" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.getUserNameWithPnr" Method="getUserNameWithPnr">
+    <Parameter Name="pnr" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+</Database>

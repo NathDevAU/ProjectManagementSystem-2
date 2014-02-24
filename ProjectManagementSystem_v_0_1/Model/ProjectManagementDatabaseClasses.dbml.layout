@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 14.875" name="ProjectManagementDatabaseClasses">
+  <DataContextMoniker Name="/ProjectManagementDatabaseClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="75cf2743-d78b-4ae7-a3cf-d28a0bce7081" absoluteBounds="3.5, 2.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/PMemEmailList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56f9d21a-4016-49ce-9d35-b0cbaf1eddeb" absoluteBounds="3.515, 2.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e591ef34-c133-4b2b-86a9-886e7ebe0c0d" absoluteBounds="9, 6.625, 2, 1.5785953776041675">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/WorksOn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a9d35cb-4125-43de-b540-2ea97383173d" absoluteBounds="9.015, 7.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce4cb126-004c-4368-99b3-665d98b63e09" absoluteBounds="3.5, 4.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/PMemPhoneList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4cf72700-2f30-42fa-8a24-1e6e303af3f8" absoluteBounds="3.515, 4.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da538110-f085-495d-94f1-079715325dc7" absoluteBounds="3.5, 8.625, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/Project" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f78cfcf-c6bd-4cee-91d1-ecfa3ea13700" absoluteBounds="3.515, 9.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" absoluteBounds="0.75, 4.125, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="734cf4d9-1d25-43e2-9745-67543db516a7" absoluteBounds="0.765, 4.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1700d88-096c-4a9b-88ce-c04e347871da" absoluteBounds="6.25, 8.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/Tasks" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27de6d09-aea9-4d77-96c8-9b53c2fb9b9b" absoluteBounds="6.265, 9.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 8.65625); (10 : 8.65625); (10 : 8.20359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/Project/Project_WorksOn" />
+      <nodes>
+        <classShapeMoniker Id="da538110-f085-495d-94f1-079715325dc7" />
+        <classShapeMoniker Id="e591ef34-c133-4b2b-86a9-886e7ebe0c0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 4.125); (1.75 : 2.97199625651042); (3.5 : 2.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember/ProjectMember_PMemEmailList" />
+      <nodes>
+        <classShapeMoniker Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" />
+        <classShapeMoniker Id="75cf2743-d78b-4ae7-a3cf-d28a0bce7081" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.05214680989583); (10 : 6.05214680989583); (10 : 6.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember/ProjectMember_WorksOn" />
+      <nodes>
+        <classShapeMoniker Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" />
+        <classShapeMoniker Id="e591ef34-c133-4b2b-86a9-886e7ebe0c0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.97199625651042); (3.5 : 4.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember/ProjectMember_PMemPhoneList" />
+      <nodes>
+        <classShapeMoniker Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" />
+        <classShapeMoniker Id="ce4cb126-004c-4368-99b3-665d98b63e09" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 6.47280110677083); (1.75 : 9.60659912109375); (2.19791916666667 : 9.60659912109375 : JumpStart); (2.36458583333333 : 9.60659912109375 : JumpEnd); (3.5 : 9.60659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember/ProjectMember_Project" />
+      <nodes>
+        <classShapeMoniker Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" />
+        <classShapeMoniker Id="da538110-f085-495d-94f1-079715325dc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.63544840494792); (9.4687475 : 9.63544840494792); (9.4687475 : 8.20359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/Tasks/Tasks_WorksOn" />
+      <nodes>
+        <classShapeMoniker Id="f1700d88-096c-4a9b-88ce-c04e347871da" />
+        <classShapeMoniker Id="e591ef34-c133-4b2b-86a9-886e7ebe0c0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.63544840494792); (6.25 : 9.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/Project/Project_Tasks" />
+      <nodes>
+        <classShapeMoniker Id="da538110-f085-495d-94f1-079715325dc7" />
+        <classShapeMoniker Id="f1700d88-096c-4a9b-88ce-c04e347871da" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0ceb3cd6-108c-48f2-bbca-d2caff58399b" absoluteBounds="3.5, 12.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/FinishedProject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fad2c2bd-bf79-4635-b425-259dfee95fe0" absoluteBounds="3.515, 13.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.2812525 : 6.47280110677083); (2.2812525 : 13.6065991210937); (3.5 : 13.6065991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProjectManagementDatabaseClassesDataContext/ProjectMember/ProjectMember_FinishedProject" />
+      <nodes>
+        <classShapeMoniker Id="3b5fd2b9-b52d-446d-ac8d-26e2a6aead46" />
+        <classShapeMoniker Id="0ceb3cd6-108c-48f2-bbca-d2caff58399b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a600d860-15b5-4382-85f9-34175d3ded8f" absoluteBounds="6.125, 12.625, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/ProjectManagementDatabaseClassesDataContext/FinishedTasks" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4334456-12e5-4c8c-be95-a16168449d6e" absoluteBounds="6.14, 13.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
